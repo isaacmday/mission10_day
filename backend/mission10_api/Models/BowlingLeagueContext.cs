@@ -29,9 +29,9 @@ public partial class BowlingLeagueContext : DbContext
         {
             entity.HasIndex(e => e.BowlerLastName, "BowlerLastName");
 
-            entity.HasIndex(e => e.TeamId, "BowlersTeamID");
+            entity.HasIndex(e => e.TeamID, "BowlersTeamID");
 
-            entity.Property(e => e.BowlerId)
+            entity.Property(e => e.BowlerID)
                 .HasColumnType("INT")
                 .HasColumnName("BowlerID");
             entity.Property(e => e.BowlerAddress).HasColumnType("nvarchar (50)");
@@ -42,7 +42,7 @@ public partial class BowlingLeagueContext : DbContext
             entity.Property(e => e.BowlerPhoneNumber).HasColumnType("nvarchar (14)");
             entity.Property(e => e.BowlerState).HasColumnType("nvarchar (2)");
             entity.Property(e => e.BowlerZip).HasColumnType("nvarchar (10)");
-            entity.Property(e => e.TeamId)
+            entity.Property(e => e.TeamID)
                 .HasColumnType("INT")
                 .HasColumnName("TeamID");
 
@@ -51,12 +51,12 @@ public partial class BowlingLeagueContext : DbContext
 
         modelBuilder.Entity<Team>(entity =>
         {
-            entity.HasIndex(e => e.TeamId, "TeamID").IsUnique();
+            entity.HasIndex(e => e.TeamID, "TeamID").IsUnique();
 
-            entity.Property(e => e.TeamId)
+            entity.Property(e => e.TeamID)
                 .HasColumnType("INT")
                 .HasColumnName("TeamID");
-            entity.Property(e => e.CaptainId)
+            entity.Property(e => e.CaptainID)
                 .HasColumnType("INT")
                 .HasColumnName("CaptainID");
             entity.Property(e => e.TeamName).HasColumnType("nvarchar (50)");

@@ -9,5 +9,7 @@
         }
 
         public IEnumerable<Bowler> Bowlers => _bowlerContext.Bowlers;
+
+        public IEnumerable<Team> Teams => _bowlerContext.Teams;
     }
 }

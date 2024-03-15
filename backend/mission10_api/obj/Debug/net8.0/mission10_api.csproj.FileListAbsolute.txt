@@ -125,3 +125,4 @@ C:\Users\dayis\source\repos\mission10_day\backend\mission10_api\bin\Debug\net8.0
 C:\Users\dayis\source\repos\mission10_day\backend\mission10_api\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\dayis\source\repos\mission10_day\backend\mission10_api\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\dayis\source\repos\mission10_day\backend\mission10_api\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\dayis\source\repos\mission10_day\backend\mission10_api\obj\Debug\net8.0\mission10_api.sourcelink.json

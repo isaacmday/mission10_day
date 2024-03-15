@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using mission10_api.Models;
 
 namespace mission10_api.Controllers
@@ -16,11 +17,25 @@ namespace mission10_api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Bowler> Get()
+        public IEnumerable<object> GetBowlersWithTeams()
         {
-            var bowlerData = _bowlerRepo.Bowlers.ToArray();
+            var bowlerData = from Bowlers in _bowlerRepo.Bowlers
+                             join Teams in _bowlerRepo.Teams on Bowlers.TeamID equals Teams.TeamID
+                             select new JoinedBowler
+                             {
+                                 BowlerID = Bowlers.BowlerID,
+                                 BowlerFirstName = Bowlers.BowlerFirstName,
+                                 BowlerMiddleInit = Bowlers.BowlerMiddleInit,
+                                 BowlerLastName = Bowlers.BowlerLastName,
+                                 BowlerAddress = Bowlers.BowlerAddress,
+                                 BowlerCity = Bowlers.BowlerCity,
+                                 BowlerState = Bowlers.BowlerState,
+                                 BowlerZip = Bowlers.BowlerZip,
+                                 BowlerPhoneNumber = Bowlers.BowlerPhoneNumber,
+                                 TeamName = Teams.TeamName
+                             };
             
-            return bowlerData;
+            return bowlerData.Where(data => data.TeamName == "Marlins" || data.TeamName == "Sharks").ToList();
         }
     } 
 }

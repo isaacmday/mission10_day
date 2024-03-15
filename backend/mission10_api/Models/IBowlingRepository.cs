@@ -5,5 +5,7 @@ namespace mission10_api.Models
     public interface IBowlingRepository
     {
         IEnumerable<Bowler> Bowlers { get; }
+
+        IEnumerable<Team> Teams { get; }
     }
 }

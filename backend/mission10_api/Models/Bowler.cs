@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mission10_api.Models;
 
@@ -8,7 +9,7 @@ public partial class Bowler
 {
     [Key]
     [Required]
-    public int BowlerId { get; set; }
+    public int BowlerID { get; set; } 
 
     public string? BowlerLastName { get; set; }
 
@@ -26,5 +27,6 @@ public partial class Bowler
 
     public string? BowlerPhoneNumber { get; set; }
 
-    public int? TeamId { get; set; }
+    [ForeignKey("Team")]
+    public int? TeamID { get; set; }
 }
