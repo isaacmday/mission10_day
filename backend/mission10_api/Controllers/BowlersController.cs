@@ -34,6 +34,22 @@ namespace mission10_api.Controllers
                                  BowlerPhoneNumber = Bowlers.BowlerPhoneNumber,
                                  TeamName = Teams.TeamName
                              };
+
+            var bowlersWithTeams = bowlerData 
+                .Select(j => new JoinedBowler
+                {
+                    BowlerID = j.BowlerID,
+                    BowlerFirstName = j.BowlerFirstName,
+                    BowlerMiddleInit = j.BowlerMiddleInit,
+                    BowlerLastName = j.BowlerLastName,
+                    BowlerAddress = j.BowlerAddress,
+                    BowlerCity = j.BowlerCity,
+                    BowlerState = j.BowlerState,
+                    BowlerZip = j.BowlerZip,
+                    BowlerPhoneNumber = j.BowlerPhoneNumber,
+                    //Team = new Team { TeamName = j.TeamName }
+                })
+                .ToList();
             
             return bowlerData.Where(data => data.TeamName == "Marlins" || data.TeamName == "Sharks").ToList();
         }

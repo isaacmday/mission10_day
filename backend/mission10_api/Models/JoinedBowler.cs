@@ -15,8 +15,6 @@ namespace mission10_api.Models
         public string BowlerZip { get; set; }
         public string BowlerPhoneNumber { get; set; }
         public int TeamID { get; set; }
-
-        [Required]
         public string TeamName { get; set; }
     }
 }

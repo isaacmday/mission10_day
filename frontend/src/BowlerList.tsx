@@ -6,7 +6,7 @@ function BowlerList() {
 
   useEffect(() => {
     const fetchBowlerData = async () => {
-      const rsp = await fetch('https://localhost:44339/bowlers');
+      const rsp = await fetch('http://localhost:5295/bowlers');
       const b = await rsp.json();
       setBowlerData(b);
     };

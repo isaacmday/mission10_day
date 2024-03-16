@@ -1,4 +1,6 @@
-﻿namespace mission10_api.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace mission10_api.Models
 {
     public class EFBowlingRepository : IBowlingRepository
     {
@@ -9,7 +11,6 @@
         }
 
         public IEnumerable<Bowler> Bowlers => _bowlerContext.Bowlers;
-
         public IEnumerable<Team> Teams => _bowlerContext.Teams;
     }
 }
